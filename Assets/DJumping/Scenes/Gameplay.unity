@@ -663,7 +663,7 @@ GameObject:
   - component: {fileID: 265787776}
   - component: {fileID: 265787775}
   - component: {fileID: 265787774}
-  - component: {fileID: 265787773}
+  - component: {fileID: 265787778}
   - component: {fileID: 265787777}
   m_Layer: 6
   m_Name: Chac_Normal
@@ -672,41 +672,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!70 &265787773
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 265787772}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.009806752, y: 0}
-  m_Size: {x: 0.86251235, y: 1.03}
-  m_Direction: 0
 --- !u!50 &265787774
 Rigidbody2D:
   serializedVersion: 4
@@ -795,7 +760,7 @@ Transform:
   m_GameObject: {fileID: 265787772}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.01, y: 2.15, z: 0}
+  m_LocalPosition: {x: 0.14, y: -2.45, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -815,7 +780,52 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 12
-  moveSpeed: 3
+  moveSpeed: 4
+--- !u!61 &265787778
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 265787772}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.047706157, y: -0.0050597787}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.99, y: 1.03}
+    newSize: {x: 0.99, y: 1.03}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.29171365, y: 1.0401195}
+  m_EdgeRadius: 0
 --- !u!1 &268298052
 GameObject:
   m_ObjectHideFlags: 0
@@ -2796,7 +2806,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1260101761933498318, guid: adf1b819ad96ae44d98429851cfd253f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.21
+      value: -3.55
       objectReference: {fileID: 0}
     - target: {fileID: 1260101761933498318, guid: adf1b819ad96ae44d98429851cfd253f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2829,6 +2839,14 @@ PrefabInstance:
     - target: {fileID: 1260101761933498318, guid: adf1b819ad96ae44d98429851cfd253f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4973540569567109589, guid: adf1b819ad96ae44d98429851cfd253f, type: 3}
+      propertyPath: m_Size.x
+      value: 1.4026223
+      objectReference: {fileID: 0}
+    - target: {fileID: 4973540569567109589, guid: adf1b819ad96ae44d98429851cfd253f, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.0058797
       objectReference: {fileID: 0}
     - target: {fileID: 5463161686550780265, guid: adf1b819ad96ae44d98429851cfd253f, type: 3}
       propertyPath: m_Name
@@ -3735,7 +3753,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aa65ccb7aa58a34ab5e53902788d50d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: 0
   player: {fileID: 265787777}
+  startingPlatform: 5
+  xSpawnOffset: 1.1
+  minYspawnPos: 1.5
+  maxYspawnPos: 2.35
+  platformPrefabs:
+  - {fileID: -7776091078773006426, guid: a76ec3d06090db64a8989f6103ab12e2, type: 3}
+  - {fileID: 2681146970796985107, guid: a2f6a8fae56c883479af8ff570c7d574, type: 3}
+  - {fileID: 4042274261059895285, guid: adf1b819ad96ae44d98429851cfd253f, type: 3}
+  collectableItems: []
 --- !u!4 &1864111106
 Transform:
   m_ObjectHideFlags: 0

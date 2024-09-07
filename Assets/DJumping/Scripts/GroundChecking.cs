@@ -14,5 +14,12 @@ public class GroundChecking : MonoBehaviour
 
         GameManager.Ins.player.PlatformLanded = platfomrLanded;
         GameManager.Ins.player.Jump();
+
+        if (!GameManager.Ins.IsPlatformLanded(platfomrLanded.Id))
+        {
+            int randScore = Random.Range(3, 10);
+            GameManager.Ins.AddScore(randScore);
+            GameManager.Ins.PlatformLandedIds.Add(platfomrLanded.Id);
+        }
     }
 }

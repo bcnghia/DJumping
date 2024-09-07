@@ -28,7 +28,7 @@ public class Player : MonoBehaviour
     {
         if (!GameManager.Ins) return;
 
-        if (!m_rb || m_rb.velocity.y > 0 || !m_platformLanded) return;
+        if (!m_rb || m_rb.velocity.y > 0.01 || !m_platformLanded) return;
 
         m_rb.velocity = new Vector2(m_rb.velocity.x, jumpForce);
     }
