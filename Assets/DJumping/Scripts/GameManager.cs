@@ -51,7 +51,7 @@ public class GameManager : Singleton<GameManager>
         return m_platformLandedIds.Contains(id);
     }
 
-    private void SpawnPlatform()
+    public void SpawnPlatform()
     {
         if (!player || platformPrefabs == null || platformPrefabs.Length <= 0) return;
 
