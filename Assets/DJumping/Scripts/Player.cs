@@ -26,16 +26,26 @@ public class Player : MonoBehaviour
 
     public void Jump()
     {
-        if (!GameManager.Ins) return;
+        if (!GameManager.Ins || GameManager.Ins.state != GameState.Playing) return;
 
         if (!m_rb || m_rb.velocity.y > 0.01 || !m_platformLanded) return;
 
+        if (m_platformLanded is BreakablePlatform)
+        {
+            m_platformLanded.PlatformAction();
+        }
+
         m_rb.velocity = new Vector2(m_rb.velocity.x, jumpForce);
+
+        if (AudioController.Ins)
+        {
+            AudioController.Ins.PlaySound(AudioController.Ins.jump);
+        }
     }
 
     private void MovingHandle()
     {
-        if (!GamepadController.Ins || !m_rb || !GameManager.Ins ) return;
+        if (!GamepadController.Ins || !m_rb || !GameManager.Ins || GameManager.Ins.state != GameState.Playing) return;
 
         if (GamepadController.Ins.CanMoveLeft)
         {
@@ -55,5 +65,17 @@ public class Player : MonoBehaviour
         transform.position = new Vector3(
             Mathf.Clamp(transform.position.x, -m_movingLimitX, m_movingLimitX),
             transform.position.y, transform.position.z);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag(GameTag.Collectable.ToString()))
+        {
+            var collectable = collision.GetComponent<Collectable>();
+            if (collectable)
+            {
+                collectable.Trigger();
+            }
+        }
     }
 }

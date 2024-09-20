@@ -32,7 +32,31 @@ public class GameManager : Singleton<GameManager>
     public override void Start()
     {
         base.Start();
-        Invoke("PlatformInit", 1f);
+        state = GameState.Starting;
+        Invoke("PlatformInit", 0.5f);
+
+        if (AudioController.Ins)
+        {
+            AudioController.Ins.PlayBackgroundMusic();
+        }
+    }
+
+    public void PlayGame()
+    {
+        if (GUIManager.Ins)
+        {
+            GUIManager.Ins.ShowGamePlay(true);
+        }
+        Invoke("PlayGameIvk", 1f);
+    }
+
+    public void PlayGameIvk()
+    {
+        state = GameState.Playing;
+        if (player)
+        {
+            player.Jump();
+        }
     }
 
     private void PlatformInit()
@@ -71,8 +95,32 @@ public class GameManager : Singleton<GameManager>
         m_lastPlatformSpawned = platformClone;
     }
 
+    public void SpawnCollectable(Transform spawnPoint)
+    {
+        if (collectableItems == null || collectableItems.Length<= 0 || state != GameState.Playing) return;
+
+        int randIdx = Random.Range(0, collectableItems.Length);
+        var collectItem = collectableItems[randIdx];
+
+        if (collectItem == null) return;
+
+        float randCheck = Random.Range(0f, 1f);
+
+        if (randCheck <= collectItem.spawnRate && collectItem.collectablePrefab)
+        {
+            var cClone = Instantiate(collectItem.collectablePrefab, spawnPoint.position, Quaternion.identity);
+            cClone.transform.SetParent(spawnPoint);
+        }
+    }
+
     public void AddScore(int scoreToAdd)
     {
+        if (state != GameState.Playing) return;
         m_score += scoreToAdd;
+        Pref.bestScore = m_score;
+        if (GUIManager.Ins)
+        {
+            GUIManager.Ins.UpdateScore(m_score);
+        }
     }
 }

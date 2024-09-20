@@ -26,5 +26,7 @@ public enum PrefKey
 [System.Serializable]
 public class CollectableItem
 {
-
+    public Collectable collectablePrefab;
+    [Range(0f, 1f)]
+    public float spawnRate;
 }

@@ -224,3 +224,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cSpawnPoint: {fileID: 5661578256561917482}
+  moveSpeed: 2
+  m_canMoveLeft: 0
+  m_canMoveRight: 0

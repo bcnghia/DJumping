@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5793059543800041675}
   - component: {fileID: 7338858023371601543}
   - component: {fileID: 4372036839454667265}
+  - component: {fileID: 8177977926926488279}
   m_Layer: 0
   m_Name: Doll
   m_TagString: Collectable
@@ -120,3 +121,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.4
+--- !u!114 &8177977926926488279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8429592259915651352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f18c041f296d1c4b819b5a5bfbe092e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreBonus: 8
+  explosionEffPb: {fileID: 291186013803513946, guid: 13f6ef375fe8e2840a98d26497f25a63, type: 3}

@@ -19,9 +19,14 @@ public class Platform : MonoBehaviour
 
     protected virtual void Start()
     {
-        if (GameManager.Ins) return;
+        if (!GameManager.Ins) return;
 
         m_player = GameManager.Ins.player;
+
+        if (cSpawnPoint)
+        {
+            GameManager.Ins.SpawnCollectable(cSpawnPoint);
+        }
     }
 
     public virtual void PlatformAction()
